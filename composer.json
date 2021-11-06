@@ -1,0 +1,14 @@
+{
+    "name": "chigozieorunta/sql-to-cpt",
+    "description": "A simple WP plugin to help you convert an SQL file with table columns to CPT meta fields.",
+    "type": "wordpress-plugin",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Chigozie Orunta",
+            "email": "chigozieorunta@yahoo.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
