@@ -21,8 +21,5 @@
     "browsersync": "^0.0.1-security",
     "gulp": "^4.0.2",
     "gulp-sass": "^5.0.0"
-  },
-  "dependencies": {
-    "sass": "^1.43.4"
   }
 }
