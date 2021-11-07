@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 
 gulp.task('watch', async () => {
-	gulp.watch('./assets/src/css/**/*.scss', ['sass']);
+	gulp.watch('./assets/src/css/**/*.scss', gulp.series(['sass']));
 })
 
 gulp.task('sass', async () => {
