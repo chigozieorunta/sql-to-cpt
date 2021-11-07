@@ -1,17 +1,18 @@
 {
   "name": "sql-to-cpt",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple WP plugin to help you convert an SQL file with table columns to CPT meta fields.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "gulp watch",
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chigozieorunta/sql-to-cpt.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Chigozie Orunta",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/chigozieorunta/sql-to-cpt/issues"
