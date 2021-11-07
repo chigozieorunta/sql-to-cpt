@@ -19,5 +19,8 @@
                 "SqlToCpt\\": "src/"
             }
         }
+    },
+    "require-dev": {
+        "wpsh/local": "dev-master"
     }
 }
