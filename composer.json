@@ -21,6 +21,7 @@
         }
     },
     "require-dev": {
-        "wpsh/local": "dev-master"
+        "wpsh/local": "dev-master",
+        "phpunit/phpunit": "8.5.x-dev"
     }
 }
