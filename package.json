@@ -21,11 +21,12 @@
   "devDependencies": {
     "browsersync": "^0.0.1-security",
     "gulp": "^4.0.2",
+    "gulp-composer": "^0.4.5",
     "gulp-sass": "^5.0.0",
-    "sass": "^1.43.4",
-    "gulp-composer": "^0.4.5"
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.43.4"
   },
   "dependencies": {
-    "npm-run-all": "^4.1.5"
+    "bootstrap": "^5.1.3"
   }
 }
