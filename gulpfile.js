@@ -8,7 +8,7 @@ const compileCSS = () => {
 }
 
 const watchCSS = () => {
-	watch('./assets/src/css/**/*.scss', sass);
+	watch('./assets/src/css/**/*.scss', compileCSS);
 }
 
 exports.sass = compileCSS;
