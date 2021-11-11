@@ -1,12 +1,15 @@
-const gulp = require('gulp');
+const {src, dest, watch} = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 
-gulp.task('watch', async () => {
-	gulp.watch('./assets/src/css/**/*.scss', gulp.series(['sass']));
-})
-
-gulp.task('sass', async () => {
-	return gulp.src('./assets/src/css/**/*.scss')
+const compileCSS = () => {
+	return src('./assets/src/css/**/*.scss')
 		.pipe(sass())
-		.pipe(gulp.dest('./assets/dist/css'));
-})
+		.pipe(dest('./assets/dist/css'));
+}
+
+const watchCSS = () => {
+	watch('./assets/src/css/**/*.scss', sass);
+}
+
+exports.sass = compileCSS;
+exports.watch = watchCSS;
