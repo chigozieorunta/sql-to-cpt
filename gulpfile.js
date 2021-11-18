@@ -1,27 +1,27 @@
-const {src, dest, watch} = require('gulp');
+const { src, dest, watch } = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
-const minifyCSS = require('gulp-clean-css');
+const minify = require('gulp-clean-css');
 const browserSync = require('browser-sync').create();
 const autoprefixer = require('gulp-autoprefixer');
 
-const compileCSS = () => {
+const compile = () => {
 	return src('./assets/src/css/**/*.scss')
 		.pipe(sass())
 		.pipe(autoprefixer())
-		.pipe(minifyCSS())
+		.pipe(minify())
 		.pipe(dest('./assets/dist/css'))
 		.pipe(browserSync.stream());
 }
 
-const watchCSS = () => {
+const observe = () => {
 	browserSync.init({
 		server: {
 			baseDir: './'
 		}
 	})
-	watch('./assets/src/css/**/*.scss', compileCSS);
+	watch('./assets/src/css/**/*.scss', compile);
 	watch('./**/*.html').on('change', browserSync.reload);
 }
 
-exports.sass = compileCSS;
-exports.watch = watchCSS;
+exports.sass = compile;
+exports.watch = observe;
