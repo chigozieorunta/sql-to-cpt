@@ -8,7 +8,6 @@ const browserSync = require('browser-sync').create();
 const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
 const concat = require('gulp-concat');
-const merge = require('merge-stream');
 
 const compile = () => {
 	return src('./assets/src/css/**/*.scss')
