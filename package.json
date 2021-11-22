@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "gulp watch",
-    "build": "gulp build",
     "compile": "npm-run-all --parallel compile:*",
-    "compile:css": "gulp sass"
+    "compile:css": "gulp sass",
+    "compile:js": "gulp scripts"
   },
   "repository": {
     "type": "git",
@@ -32,8 +32,6 @@
   },
   "dependencies": {
     "bootstrap": "^5.1.3",
-    "gulp-babel": "^8.0.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-uglify": "^3.0.2"
+    "jquery": "^3.6.0"
   }
 }
