@@ -8,6 +8,7 @@ const browserSync = require('browser-sync').create();
 const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
 const concat = require('gulp-concat');
+const merge = require('merge-stream');
 
 const compile = () => {
 	return src('./assets/src/css/**/*.scss')
@@ -22,16 +23,14 @@ const scripts = () => {
 	let core = src('./assets/src/js/**/*.js')
 		.pipe(babel())
 		.pipe(uglify())
-		.pipe(concat('scripts.js'))
+		.pipe(concat('core.js'))
 		.pipe(dest('./assets/dist/js'));
 
-	let jquery = src(['node_modules/jquery/dist/jquery.min.js'])
+	let jQuery = src(['node_modules/jquery/dist/jquery.min.js'])
 		.pipe(concat('jquery.js'))
 		.pipe(dest('./assets/dist/js'));
 
-	return src('./assets/dist/js/**/*.js')
-		.pipe(concat('core.js'))
-		.pipe(dest('./assets/dist/js'));
+	return merge(core, jQuery);
 }
 
 const observe = () => {
