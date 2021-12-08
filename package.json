@@ -7,7 +7,9 @@
     "dev": "gulp watch",
     "compile": "npm-run-all --parallel compile:*",
     "compile:css": "gulp sass",
-    "compile:js": "gulp scripts"
+    "compile:js": "gulp scripts",
+    "lint": "npm-run-all --parallel lint:*",
+    "lint:php": "composer lint"
   },
   "repository": {
     "type": "git",
