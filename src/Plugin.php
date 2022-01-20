@@ -25,7 +25,7 @@ class Plugin {
 	 * @return void
 	 */
 	public function __construct() {
-		add_action( 'admin_menu', [ $this, 'sql_to_cpt_page'] );
+		add_action( 'admin_menu', [ $this, 'sql_to_cpt_page' ] );
 	}
 
 	/**
@@ -33,14 +33,20 @@ class Plugin {
 	 */
 	public function sql_to_cpt_page() {
 		add_menu_page(
-			__( 'SQL To CPT Title', 'textdomain' ),
-			'SQL To CPT',
+			__( 'SQL To CPT', 'stc' ),
+			__( 'SQL To CPT', 'stc' ),
 			'manage_options',
-			'myplugin/myplugin-admin.php',
-			'',
-			plugins_url( 'myplugin/images/icon.png' ),
-			6
+			'sql-to-cpt',
+			[ $this, 'sql_to_cpt_html' ],
+			'dashicons-database'
 		);
+	}
+
+	/**
+	 * Display HTML for menu page
+	 */
+	public function sql_to_cpt_html() {
+		readfile( __DIR__ . '/../sql-to-cpt.html' );
 	}
 
 	/**
