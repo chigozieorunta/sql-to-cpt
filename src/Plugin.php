@@ -26,6 +26,7 @@ class Plugin {
 	 */
 	public function __construct() {
 		add_action( 'admin_menu', [ $this, 'sql_to_cpt_page' ] );
+		add_action( 'admin_enqueue_scripts', [ $this, 'sql_to_cpt_style' ] );
 	}
 
 	/**
@@ -46,7 +47,17 @@ class Plugin {
 	 * Display HTML for menu page
 	 */
 	public function sql_to_cpt_html() {
+		ob_start();
 		readfile( __DIR__ . '/../sql-to-cpt.html' );
+	}
+
+	/**
+	 * Custom styling for menu page
+	 *
+	 * @return void
+	 */
+	public function sql_to_cpt_style() {
+		wp_enqueue_style( 'sql-to-cpt', plugin_dir_url( __FILE__ ) . '../assets/dist/css/plugin.css' );
 	}
 
 	/**
