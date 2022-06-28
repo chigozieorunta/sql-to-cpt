@@ -30,7 +30,7 @@ services:
       - .:/var/www/html/wp-content/plugins/sql-to-cpt
     environment:
       WORDPRESS_DEBUG: 1
-      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_HOST: mysql:3306
       WORDPRESS_DB_USER: sqltocpt
       WORDPRESS_DB_PASSWORD: password
     networks:
