@@ -3,15 +3,20 @@ version: '3'
 services:
 
   mysql:
-    image: mysql:5
+    image: mysql
+    platform: linux/amd64
+    restart: always
+    ports:
+      - 0007:3306
     volumes:
       - db_data:/var/lib/mysql
-    restart: always
     environment:
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wordpress
+      MYSQL_DATABASE: sqltocpt
+      MYSQL_USER: sqltocpt
       MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: password
+    networks:
+      sqltocpt
 
   wordpress:
     build: ./scripts/docker/wordpress
