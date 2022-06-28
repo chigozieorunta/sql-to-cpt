@@ -16,30 +16,29 @@ services:
       MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: password
     networks:
-      sqltocpt
+      - sqltocpt
 
   wordpress:
-    build: ./scripts/docker/wordpress
+    image: wordpress
+    restart: always
     depends_on:
       - mysql
     ports:
-      - "80:80"
-      - "443:443"
+      - '0047:80'
     volumes:
       - wp_data:/var/www/html/wp-content
       - .:/var/www/html/wp-content/plugins/sql-to-cpt
-    restart: always
     environment:
       WORDPRESS_DEBUG: 1
-      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: sqltocpt
       WORDPRESS_DB_PASSWORD: password
+    networks:
+      - sqltocpt
 
-  mailhog:
-    image: mailhog/mailhog
-    ports:
-      - "1025:1025"
-      - "8025:8025"
+networks:
+  sqltocpt:
 
 volumes:
-  db_data: {}
-  wp_data: {}
+  db_data:
+  wp_data:
